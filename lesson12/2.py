@@ -21,6 +21,8 @@ class Circle:
         return ('Это круг, координаты и радиус:' + str(krug1.x))
 
 krug1 = Circle(11,30,5)
+krugdan = Circle(3,8,90)
+
 
 print(krug1)
 
