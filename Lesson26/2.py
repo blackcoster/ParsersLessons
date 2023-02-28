@@ -1,11 +1,10 @@
-from urllib.request import urlopen
+import requests
 from bs4 import BeautifulSoup
 
 url = 'https://ru.wikipedia.org/wiki/Python'
 
-html = urlopen(url)
-bs = BeautifulSoup(html,'html.parser')
-bs = BeautifulSoup(html.read(),'html.parser')
+html = requests.get(url)
+bs = BeautifulSoup(html.text,'html.parser')
 print(bs.html.body.h1)
 print(bs.h1.text)
 # result = html.read()
