@@ -7,17 +7,18 @@ class ArticleSpider(CrawlSpider):
     start_urls = ['https://www.kinopoisk.ru/media/article/4007615/?from_block=editorial_choice']
     rules = [Rule(LinkExtractor(allow='/media/article'), callback='parse_items', follow=True)]
 
+    # ЭТО ДЗ ПРОШЛОГО УРОКА
+    # def parse_items(self, response):
+    #     url = response.url
+    #     title = response.xpath('//h1//span/text()').get()
+    #     print('URL is: {}'.format(url))
+    #     print('Title is: {}'.format(title))
+
+
+    #ЭТО ДЗ ЭТОГО УРОКА
     def parse_items(self, response):
         url = response.url
         title = response.xpath('//h1//span/text()').get()
-        print('URL is: {}'.format(url))
-        print('Title is: {}'.format(title))
+        yield {'URL':url,
+               'TITLE':title}
 
-    # def parse(self, response, **kwargs):
-    #         for article in response
-    #         url = response.url
-    #         title = response.xpath('//h1//span/text()').get()
-    #         yield {
-    #             'text': f'url - {url}',
-    #             'title': f'title - {title}'
-    #     }
